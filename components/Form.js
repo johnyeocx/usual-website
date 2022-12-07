@@ -29,7 +29,7 @@ const CustomTextField = styled(TextField)({
 function Form({
     name, setName, email, setEmail, loading, handleSubmit, success
 }) {
-    const emailRef = useRef();
+    const emailRef = useRef(null);
     return (
         <div className={styles.right}>
             <div className={styles.contentContainer}>
@@ -55,15 +55,19 @@ function Form({
                             label="Name"
                             variant="outlined"
                             value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            onSubmitEditing={() => {
-                                console.log("submitting")
-                                emailRef.current.focus();
+                            onChange={(e) => {
+
+                                setName(e.target.value)
+                            }}
+                            onKeyDown={(e) => {
+                                if (e.key == "Enter") {
+                                    emailRef.current.focus();
+                                }
                             }}
                             blurOnSubmit={false}
                         />
                         <CustomTextField
-                            ref={emailRef}
+                            inputRef={emailRef}
                             className={styles.textField}
                             label="Email"
                             variant="outlined"
