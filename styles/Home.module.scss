@@ -1,0 +1,71 @@
+@import './config';
+
+.container {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 0;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  // background-color: blue;
+  position: relative;
+  object-fit: contain;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
+  .logo {
+    object-fit: contain;
+  }
+}
+
+.subtitle {
+  color: black;
+  font-family: $primary-font;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.successText {
+  color: black;
+  font-family: $primary-font;
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.formContainer {
+  // background-color: red;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+
+  .textField {
+    margin-bottom: 20px;
+    width: 350px;
+  }
+  
+  .questionField {
+    height: 100px;
+  }
+}
+
+.rippleButtonContainer {
+  position: relative;
+  background-color: transparent;
+  margin: 12.5px 0px;
+  height: 50px;
+  z-index: 10;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}

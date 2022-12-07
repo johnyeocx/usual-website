@@ -1,0 +1,86 @@
+@import '../config';
+
+$grey: rgb(36, 36, 36);
+$width: 100px;
+$blue: grey;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.rippleButton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    font-family: $primary-font;
+    font-weight: bold;
+    font-size: 17px;
+
+
+    border: 2px solid;
+    background-color: transparent;
+    border: 2px solid $grey;
+    color: $grey;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: color 0.4s, transform 0.2s, background-color 0.2s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // &:hover{
+    //     color: white;
+    // }
+    
+    // &::after{
+    //     content: "";
+    //     position: absolute;
+    //     left: 0px;
+    //     top: 0px;
+    //     // top: 0px;
+    //     width: 100%;
+    //     height: $width;
+    //     background-color: $grey;
+    //     border-color: transparent;
+    //     border-radius: 50%;
+    //     transform-origin: center;
+    //     transform:  scale(0.3);
+    //     opacity: 0;
+    //     z-index: -1;
+    //     transition: transform 0.3s, opacity 0.4s, background-color 0.4s;
+    // }
+        
+    // &:hover::after{
+    //     opacity: 1;
+    //     transform-origin: 75px 75px;
+    //     transform: scale(1.2) translate(-10px, -20px);
+    // }
+}
+
+@keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+.spinner {
+    width: 25px;
+    height: 25px;
+    border-style: solid;
+    border-radius: 12.5px;
+    border-color:rgb(250, 250, 250, 0.3);
+    border-width: 4px;
+    border-left-color:black;
+    font-size: 0;
+    animation: rotating 1s 0.25s linear infinite;
+}
