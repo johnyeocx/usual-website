@@ -1,35 +1,153 @@
 @import './config';
 
+@mixin flexCenter ($flex-direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $flex-direction;
+}
+
 .container {
-  padding: 0 2rem;
+  padding: 0 15%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
   z-index: 0;
+  overflow: auto;
+  overflow-x: hidden;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0px;
+    padding-bottom: 50px;
+  }
+
+  .left {
+    width: 50%;
+    @include flexCenter(column);
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+      height: 90vh;
+      // background-color: green;
+    }
+  }
+
+  .right {
+    width: 50%;
+
+    @media (max-width: $breakpoint-tablet) {
+      min-height: 95vh;
+      width: 100%;
+    }
+  }
 }
 
-.imgContainer {
+.screenContainer {
   display: flex;
   justify-content: center;
-  // background-color: blue;
   position: relative;
   object-fit: contain;
   margin-bottom: 10px;
   margin-right: 10px;
+  width: 60%;
+  max-width: 400px;
+  min-width: 350px;
+
+  @media (max-width: $breakpoint-tablet) {
+    height: 95%;
+  }
 
   .logo {
     object-fit: contain;
   }
 }
 
-.subtitle {
-  color: black;
-  font-family: $primary-font;
-  font-size: 20px;
-  text-align: center;
-  margin-bottom: 30px;
+.right {
+  @include flexCenter(column);
+
+
+  .contentContainer {
+    padding-left: 50px;
+    @include flexCenter(column);
+    align-items: flex-start;
+
+    @media (max-width: $breakpoint-tablet) {
+      // margin: 150px 0px;
+      height: 75vh;
+      width: 100%;
+      padding: 0px 50px;
+    }
+  }
+
+  .headerContainer {
+    width: 100%;
+    @include flexCenter(column);
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    .subtitle {
+      color: black;
+      font-family: $primary-font;
+      font-weight: bolder;
+      font-size: 35px;
+      text-align: start;
+
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 22px;
+      }
+    }
+    
+    p {
+      color: rgb(106, 106, 106);
+      font-family: $primary-font;
+      font-size: 20px;
+      text-align: start;
+
+    }
+  }
+
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+
+    .textField {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    
+    .questionField {
+      height: 100px;
+    }
+  }
 }
+
+
+.submitButton {
+  height: 50px;
+  width: 100%;
+
+  font-size: 18px;
+  font-weight: bold;
+  font-family: $primary-font;
+  background-color: rgb(65, 65, 65);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgb(0, 0, 0);
+  }
+
+  @include flexCenter(row);
+}
+
 
 .successText {
   color: black;
@@ -43,29 +161,25 @@
   object-fit: contain;
 }
 
-.formContainer {
-  // background-color: red;
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
 
-  .textField {
-    margin-bottom: 20px;
-    width: 350px;
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .questionField {
-    height: 100px;
+  to {
+    transform: rotate(360deg);
   }
 }
-
-.rippleButtonContainer {
-  position: relative;
-  background-color: transparent;
-  margin: 12.5px 0px;
-  height: 50px;
-  z-index: 10;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  
+.spinner {
+  width: 25px;
+  height: 25px;
+  border-style: solid;
+  border-radius: 12.5px;
+  border-color:rgba(246, 246, 246, 0.3);
+  border-width: 4px;
+  border-left-color:white;
+  font-size: 0;
+  animation: rotating 1s 0.25s linear infinite;
 }

@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
