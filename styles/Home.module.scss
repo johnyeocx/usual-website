@@ -65,6 +65,29 @@
   }
 }
 
+@keyframes flyFromRight {
+  0% {
+    transform: translateX(50vw);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
 .right {
   @include flexCenter(column);
 
@@ -83,6 +106,8 @@
   }
 
   .headerContainer {
+    animation: flyFromRight ease-in 0.3s;
+    animation-fill-mode: forwards;
     width: 100%;
     @include flexCenter(column);
     align-items: flex-start;
@@ -109,8 +134,10 @@
     }
   }
 
-
   .formContainer {
+    animation: appear ease-in 0.4s;
+    animation-fill-mode: forwards;
+
     display: flex;
     flex-direction: column;
     width: 100%;

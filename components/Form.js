@@ -2,6 +2,7 @@
 import styles from '../styles/Home.module.scss'
 import { TextField, styled } from '@mui/material'
 import Logo from '../components/Logo'
+import { useRef } from 'react';
 
 const CustomTextField = styled(TextField)({
     '& label.Mui-focused': {
@@ -28,6 +29,7 @@ const CustomTextField = styled(TextField)({
 function Form({
     name, setName, email, setEmail, loading, handleSubmit, success
 }) {
+    const emailRef = useRef();
     return (
         <div className={styles.right}>
             <div className={styles.contentContainer}>
@@ -54,8 +56,14 @@ function Form({
                             variant="outlined"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                            onSubmitEditing={() => {
+                                console.log("submitting")
+                                emailRef.current.focus();
+                            }}
+                            blurOnSubmit={false}
                         />
                         <CustomTextField
+                            ref={emailRef}
                             className={styles.textField}
                             label="Email"
                             variant="outlined"
