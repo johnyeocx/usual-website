@@ -26,7 +26,7 @@ const CustomTextField = styled(TextField)({
 
 
 function Form({
-    name, setName, email, setEmail, loading, handleSubmit
+    name, setName, email, setEmail, loading, handleSubmit, success
 }) {
     return (
         <div className={styles.right}>
@@ -44,38 +44,41 @@ function Form({
                     <p>Join our waitlist and get exclusive early user privileges.</p>
                 </div>
 
+                {success ? (
+                    <div className={styles.successText}>Thank you for joining us, every sign up counts. We look forward to getting in touch with you :)</div>
+                ) : (
+                    <div className={styles.formContainer}>
+                        <CustomTextField
+                            className={styles.textField}
+                            label="Name"
+                            variant="outlined"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <CustomTextField
+                            className={styles.textField}
+                            label="Email"
+                            variant="outlined"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
 
-                <div className={styles.formContainer}>
-                    <CustomTextField
-                        className={styles.textField}
-                        label="Name"
-                        variant="outlined"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <CustomTextField
-                        className={styles.textField}
-                        label="Email"
-                        variant="outlined"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                        <button className={styles.submitButton} onClick={() => {
+                            handleSubmit()
+                        }}>
+                            {loading ? (
+                                <div className={styles.spinner}></div>
 
-                    <button className={styles.submitButton} onClick={() => {
-                        handleSubmit()
-                    }}>
-                        {loading ? (
-                            <div className={styles.spinner}></div>
+                            ) : (
+                                <>Join Our Waiting List</>
+                            )}
+                        </button>
 
-                        ) : (
-                            <>Join Our Waiting List</>
-                        )}
-                    </button>
+                        <div className={styles.rippleButtonContainer}>
 
-                    <div className={styles.rippleButtonContainer}>
-
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     )

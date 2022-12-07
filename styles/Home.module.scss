@@ -92,7 +92,7 @@
       color: black;
       font-family: $primary-font;
       font-weight: bolder;
-      font-size: 35px;
+      font-size: 40px;
       text-align: start;
 
       @media (max-width: $breakpoint-tablet) {
@@ -140,6 +140,7 @@
   border: none;
   cursor: pointer;
   transition: 0.2s;
+  color: white;
 
   &:hover {
     background-color: rgb(0, 0, 0);
@@ -153,7 +154,7 @@
   color: black;
   font-family: $primary-font;
   font-size: 19px;
-  text-align: center;
+  text-align: start;
   margin-bottom: 30px;
 }
 

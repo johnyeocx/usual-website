@@ -88,31 +88,31 @@ export default function Home() {
     setSuccess(true)
   }
 
-  if (success) {
-    return (
-      <Div100vh className={styles.container}>
-        <div className={styles.container1}>
-          <div className={styles.imgContainer}>
-            <Image src={logo}
-              width={200}
-              style={{ objectFit: 'contain' }}
-              alt=""
-            />
-          </div>
+  // if (success) {
+  //   return (
+  //     <Div100vh className={styles.container}>
+  //       <div className={styles.container1}>
+  //         <div className={styles.imgContainer}>
+  //           <Image src={logo}
+  //             width={200}
+  //             style={{ objectFit: 'contain' }}
+  //             alt=""
+  //           />
+  //         </div>
 
-          <div className={styles.subtitle}>
-            Build lasting relationships
-          </div>
+  //         <div className={styles.subtitle}>
+  //           Build lasting relationships
+  //         </div>
 
-          <div className={styles.successText}>
-            Thank you for joining us, every sign up counts.
-            <br></br>
-            We look forward to contacting you soon :)
-          </div>
-        </div>
-      </Div100vh >
-    )
-  }
+  //         <div className={styles.successText}>
+  //           Thank you for joining us, every sign up counts.
+  //           <br></br>
+  //           We look forward to contacting you soon :)
+  //         </div>
+  //       </div>
+  //     </Div100vh >
+  //   )
+  // }
 
   return (
 
@@ -128,12 +128,13 @@ export default function Home() {
               setEmail={setEmail}
               loading={loading}
               handleSubmit={handleSubmit}
+              success={success}
             />
-            <Screen />
+            <Screen isMobile={isMobile} />
           </>
           :
           <>
-            <Screen />
+            <Screen isMobile={isMobile} />
             <Form
               name={name}
               setName={setName}
@@ -141,6 +142,7 @@ export default function Home() {
               setEmail={setEmail}
               loading={loading}
               handleSubmit={handleSubmit}
+              success={success}
             />
 
           </>
