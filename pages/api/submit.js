@@ -42,7 +42,7 @@ export default async function handler(
             valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [
-                    [body.name, body.email, body.question]
+                    [body.name, body.email]
                 ]
             }
         })
