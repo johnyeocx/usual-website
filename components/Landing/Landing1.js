@@ -37,7 +37,7 @@ function Landing1({ isMobile, registerPageRef }) {
                                 firstScreenRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
                             }}
                             className={styles.letsGoButton}>
-                            Let's Go
+                            Let&apos;s Go
                         </button>
                     </div>
 
