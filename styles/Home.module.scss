@@ -8,41 +8,10 @@
 }
 
 .container {
-  padding: 0 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: white;
   z-index: 0;
   overflow: auto;
   overflow-x: hidden;
-
-  @media (max-width: $breakpoint-tablet) {
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0px;
-    padding-bottom: 50px;
-  }
-
-  .left {
-    width: 50%;
-    @include flexCenter(column);
-
-    @media (max-width: $breakpoint-tablet) {
-      width: 100%;
-      height: 90vh;
-      // background-color: green;
-    }
-  }
-
-  .right {
-    width: 50%;
-
-    @media (max-width: $breakpoint-tablet) {
-      min-height: 95vh;
-      width: 100%;
-    }
-  }
 }
 
 .screenContainer {

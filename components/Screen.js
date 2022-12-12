@@ -20,13 +20,16 @@ function Screen({ isMobile }) {
                 </p>
             )}
 
-            <div className={styles.screenContainer}>
+            <div className={`${styles.right}`}>
+                <div className={styles.screenContainer}>
 
-                <Image src={screen}
-                    style={{ height: '100%', width: '100%', objectFit: 'contain' }}
-                    alt=""
-                />
+                    <Image src={screen}
+                        style={{ height: '100%', width: '100%', objectFit: 'contain' }}
+                        alt=""
+                    />
+                </div>
             </div>
+
 
         </div>
     )

@@ -6,3 +6,10 @@ $breakpoint-tablet: 768px;
 $breakpoint-laptop: 950px;
 $breakpoint-desktop: 1025px;
 $breakpoint-thin: 380px;
+
+@mixin flexCenter ($flex-direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $flex-direction;
+}

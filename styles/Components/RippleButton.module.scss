@@ -4,11 +4,7 @@ $grey: rgb(36, 36, 36);
 $width: 100px;
 $blue: grey;
 
-@mixin flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 
 .rippleButton {

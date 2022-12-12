@@ -1,0 +1,139 @@
+@import 'config';
+
+
+
+@keyframes flyFromRight {
+    0% {
+      transform: translateX(50vw);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+
+
+
+
+
+.contentContainer {
+    // background-color: blue;
+    // padding-left: 50px;
+    @include flexCenter(column);
+    // align-items: center;
+    width: 100%;
+    padding: 0px 18%;
+
+    @media (max-width: $breakpoint-tablet) {
+    // margin: 150px 0px;
+      height: 75vh;
+      width: 100%;
+      padding: 0px 50px;
+    }
+
+    .headerContainer {
+      p {
+        color: white;
+        font-size: 22px;
+      }
+      margin-bottom: 40px;
+
+      @media (max-width: $breakpoint-tablet) {
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+}
+
+.formContainer {
+    animation: appear ease-in 0.4s;
+    animation-fill-mode: forwards;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+
+    .textField {
+      margin-bottom: 25px;
+      width: 100%;
+    }
+    
+    .questionField {
+      height: 100px;
+    }
+}
+
+  
+  
+.submitButton {
+    height: 50px;
+    width: 100%;
+  
+    font-size: 18px;
+    font-weight: bold;
+    font-family: $primary-font;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    color: black;
+    margin-top: 20px;
+  
+    &:hover {
+      background-color: white;
+    }
+  
+    @include flexCenter(row);
+}
+  
+  
+  .successText {
+    color: white;
+    font-family: $primary-font;
+    font-size: 18px;
+    text-align: start;
+    margin-bottom: 30px;
+  }
+  
+  .logo {
+    object-fit: contain;
+  }
+  
+  
+  
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+    
+  .spinner {
+    width: 25px;
+    height: 25px;
+    border-style: solid;
+    border-radius: 12.5px;
+    border-color:rgba(37, 37, 37, 0.3);
+    border-width: 4px;
+    border-left-color:black;
+    font-size: 0;
+    animation: rotating 1s 0.25s linear infinite;
+  }

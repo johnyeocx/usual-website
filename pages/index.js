@@ -6,13 +6,16 @@ import logo from '../public/images/logo2.png'
 import screen from '../public/images/home_screen.png'
 import { TextField, styled } from '@mui/material'
 import RippleButton from '../components/RippleButton'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import Logo from '../components/Logo'
 import AppContext from './AppContext'
 
 import dynamic from 'next/dynamic'
 import Screen from '../components/Screen'
 import Form from '../components/Form'
+import Landing1 from '../components/Landing/Landing1'
+import Landing2 from '../components/Landing/Landing2'
+import Landing3 from '../components/Landing/Landing3'
 
 
 const CustomTextField = styled(TextField)({
@@ -55,6 +58,8 @@ export default function Home() {
   const value = useContext(AppContext);
   let { dimensions } = value.state;
 
+  const registerPageRef = useRef(null)
+
   useEffect(() => {
     if (dimensions && dimensions.width < breakpoints.tablet) {
       setIsMobile(true)
@@ -88,37 +93,20 @@ export default function Home() {
     setSuccess(true)
   }
 
-  // if (success) {
-  //   return (
-  //     <Div100vh className={styles.container}>
-  //       <div className={styles.container1}>
-  //         <div className={styles.imgContainer}>
-  //           <Image src={logo}
-  //             width={200}
-  //             style={{ objectFit: 'contain' }}
-  //             alt=""
-  //           />
-  //         </div>
-
-  //         <div className={styles.subtitle}>
-  //           Build lasting relationships
-  //         </div>
-
-  //         <div className={styles.successText}>
-  //           Thank you for joining us, every sign up counts.
-  //           <br></br>
-  //           We look forward to contacting you soon :)
-  //         </div>
-  //       </div>
-  //     </Div100vh >
-  //   )
-  // }
-
   return (
 
     <Div100vh className={styles.container}>
-
-      {
+      <Landing1 isMobile={isMobile} registerPageRef={registerPageRef} />
+      <Landing2 />
+      <Landing3 registerPageRef={registerPageRef}
+        name={name}
+        setName={setName}
+        email={email}
+        setEmail={setEmail}
+        loading={loading}
+        handleSubmit={handleSubmit}
+        success={success} />
+      {/* {
         isMobile ?
           <>
             <Form
@@ -146,7 +134,7 @@ export default function Home() {
             />
 
           </>
-      }
+      } */}
 
     </Div100vh >
 

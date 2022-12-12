@@ -1,28 +1,24 @@
 
-import styles from '../styles/Home.module.scss'
+import styles from '../styles/Form.module.scss'
 import { TextField, styled } from '@mui/material'
 import Logo from '../components/Logo'
+import LogoDark from '../public/images/logo_dark.svg'
 import { useRef } from 'react';
 
 const CustomTextField = styled(TextField)({
-    '& label.Mui-focused': {
-        color: '#333',
+    "& .MuiFilledInput-root": {
+        backgroundColor: "#444"
     },
-    '& .MuiInput-underline:after': {
-        borderBottomColor: 'grey',
+    "& .MuiFilledInput-root:hover": {
+        backgroundColor: "#444",
+        // Reset on touch devices, it doesn't add specificity
+        "@media (hover: none)": {
+            backgroundColor: "#444"
+        }
     },
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-            borderColor: 'grey',
-            borderRadius: '10px',
-        },
-        '&:hover fieldset': {
-            borderColor: 'grey',
-        },
-        '&.Mui-focused fieldset': {
-            borderColor: 'black',
-        },
-    },
+    "& .MuiFilledInput-root.Mui-focused": {
+        backgroundColor: "#444"
+    }
 });
 
 
@@ -31,19 +27,16 @@ function Form({
 }) {
     const emailRef = useRef(null);
     return (
-        <div className={styles.right}>
+        <div className={styles.container}>
             <div className={styles.contentContainer}>
 
                 <div className={styles.headerContainer}>
                     <div style={{ width: 140, marginBottom: '12px' }}>
-                        <Logo />
+                        {/* <Logo /> */}
+                        <LogoDark />
                     </div>
 
-                    <div className={styles.subtitle}>
-                        Build lasting relationships
-                    </div>
-
-                    <p>Join our waitlist and get exclusive early user privileges.</p>
+                    <p> Register your interest now to join our community of early users.</p>
                 </div>
 
                 {success ? (
@@ -53,26 +46,70 @@ function Form({
                         <CustomTextField
                             className={styles.textField}
                             label="Name"
-                            variant="outlined"
+                            variant="filled"
                             value={name}
                             onChange={(e) => {
-
                                 setName(e.target.value)
                             }}
                             onKeyDown={(e) => {
+                                // e.preventDefault()
                                 if (e.key == "Enter") {
                                     emailRef.current.focus();
                                 }
                             }}
+
+                            style={{
+                                backgroundColor: "grey !important"
+                            }}
+
+                            InputLabelProps={{
+                                style: {
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden',
+                                    width: '100%',
+                                    color: '#DDD', fontFamily: "CircularStd"
+                                }
+                            }}
+
+                            inputProps={{ style: { color: "white", fontFamily: "CircularStd" } }}
                             blurOnSubmit={false}
                         />
+
                         <CustomTextField
                             inputRef={emailRef}
                             className={styles.textField}
                             label="Email"
-                            variant="outlined"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            variant="filled"
+
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }}
+                            // value={email}
+                            // onChange={(e) => setEmail(e.target.value)}
+
+                            style={{
+                                backgroundColor: "grey !important"
+                            }}
+
+                            InputLabelProps={{
+                                style: {
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden',
+                                    width: '100%',
+                                    color: '#DDD',
+                                    fontFamily: "CircularStd"
+                                }
+                            }}
+
+                            inputProps={{
+                                style: {
+                                    color: "white",
+                                    fontFamily: "CircularStd",
+                                }
+                            }}
+                            blurOnSubmit={false}
                         />
 
                         <button className={styles.submitButton} onClick={() => {
@@ -82,13 +119,10 @@ function Form({
                                 <div className={styles.spinner}></div>
 
                             ) : (
-                                <>Join Our Waiting List</>
+                                <>Join Us!</>
                             )}
                         </button>
 
-                        <div className={styles.rippleButtonContainer}>
-
-                        </div>
                     </div>
                 )}
             </div>
