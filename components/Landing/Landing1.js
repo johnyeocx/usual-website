@@ -13,11 +13,11 @@ function Landing1({ isMobile, registerPageRef }) {
             <div className={`${styles.left}`}>
 
                 <div className={styles.brandContainer}>
-                    <div className={styles.logoContainer}>
-                        <div className={styles.svgContainer}>
-                            <Logo />
-                        </div>
+                    {/* <div className={styles.logoContainer}> */}
+                    <div className={styles.svgContainer}>
+                        <Logo />
                     </div>
+                    {/* </div> */}
 
 
                     <div className={styles.subtitle}>

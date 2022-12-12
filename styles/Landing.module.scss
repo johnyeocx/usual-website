@@ -69,7 +69,7 @@
   }
 
   .logoContainer {
-    width: 100%;
+    width: 100px;
   }
 
   @media (max-width: $breakpoint-tablet) {
@@ -83,16 +83,13 @@
     padding: 0px 25px;
 
     .logoContainer {
-      width: 100%;
+      width: 300px;
       @include flexCenter(column);
       align-items: flex-start;
     }
 
     .svgContainer {
       width: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .subtitle {
