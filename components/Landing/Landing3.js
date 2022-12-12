@@ -24,7 +24,7 @@ function Landing3({
                 <div className={styles.screenContainer}>
                     <Image src={screen4}
                         style={{
-                            height: '100%', width: '100%'
+                            height: '100%', width: '100%', objectFit: 'contain'
                         }}
                         alt=""
                     />
