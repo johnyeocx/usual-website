@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styles from '../../styles/Landing.module.scss';
-import Logo from '../Logo';
+import Logo from '../../public/images/logo.svg';
 import screen1 from '../../public/images/screen1.png'
 import Image from 'next/image';
 
