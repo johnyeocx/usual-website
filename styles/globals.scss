@@ -7,7 +7,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   scroll-behavior: smooth;
-
+  background-color: white;
 }
 
 a {
@@ -17,6 +17,11 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
 
 @media (prefers-color-scheme: dark) {

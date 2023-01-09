@@ -44,6 +44,7 @@ function MyApp({ Component, pageProps }) {
       common: { black: color, white: color },
 
       primary: { main: color, dark: color, light: color },
+      secondary: { main: "#111", dark: color, light: "#111" },
 
       // text: { primary: color, secondary: color }
     },

@@ -1,0 +1,147 @@
+@import '../config';
+
+@keyframes exit {
+    100% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    opacity: 1;
+    transform: translateX(0);
+    animation: exit 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    transform: translateX(100px);
+    opacity: 0;
+    animation: fadeIn 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 50px 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    .firstHalf {
+        width: 100%;
+    }
+}
+
+
+$logoHeight: 60px;
+.businessContainer{
+    margin-bottom: 20px;
+    .top {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .name {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .logoContainer {
+        width: $logoHeight;
+        height: $logoHeight;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        margin-right: 15px;
+        @include flexCenter(row);
+
+        img {
+            width: $logoHeight - 1;
+            height: $logoHeight - 1;
+            border-radius: 50%;
+        border: 1px solid #eee;
+        }
+    }
+}
+
+.productsContainer {
+    padding: 0px 8px;
+    width: 100%;
+
+    .promptText {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+}
+
+$productImgRadius: 10px;
+$productImgHeight: 100px;
+.productImgContainer {
+    width: $productImgHeight;
+    height: $productImgHeight;
+    border-radius: $productImgRadius;
+    border: 1px solid #eee;
+    margin-right: 15px;
+    @include flexCenter(row);
+
+    img {
+        width: $productImgHeight - 1;
+        height: $productImgHeight - 1;
+        border-radius: $productImgRadius;
+    border: 1px solid #eee;
+    }
+}
+
+.productCard {
+    display: flex;
+    width: 100%;
+    // background-color: red;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .productDetails {
+        .name {
+            font-size: 17px; 
+            font-weight: bold;
+        }
+
+        .category {
+            color:rgb(87, 87, 87);
+            margin-bottom: 5px;
+            
+        }
+    }  
+}
+
+.buttonContainer {
+    width: 100%;
+    padding: 0px 10px;
+
+    button {
+        width: 100%;
+        height: 50px;
+        border-radius: 50px;
+        background-color: black;
+        font-size: 20px;
+        font-family: $primary-font;
+        cursor: pointer
+    }
+}

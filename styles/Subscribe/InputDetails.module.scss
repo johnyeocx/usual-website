@@ -1,0 +1,121 @@
+@import "../config";
+
+
+@keyframes exit {
+    100% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    opacity: 1;
+    transform: translateX(0);
+    animation: exit 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes exitLeft {
+    100% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+}
+
+.fadeOutLeft {
+    opacity: 1;
+    transform: translateX(0);
+    animation: exitLeft 0.2s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeInRight {
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    transform: translateX(100px);
+    opacity: 0;
+    animation: fadeInRight 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.container {
+    padding: 20px 20px 50px 20px;
+    // padding-bottom: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.backButton {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: transparent;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    .icon {
+        color: black;
+        font-size: 23px;
+    }
+}
+
+.title {
+    padding: 0px 11px;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.formContainer {
+    padding: 0px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.textField {
+    width: 48%;
+    font-size: 10px;
+}
+
+.textField2 {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row2 {
+    width: 50%;
+    display: flex;
+}
+
+.buttonContainer {
+    width: 100%;
+    padding: 0px 10px;
+    // margin-top: 50px;
+
+    button {
+        width: 100%;
+        height: 50px;
+        border-radius: 50px;
+        background-color: black;
+        font-size: 20px;
+        font-family: $primary-font;
+        cursor: pointer
+    }
+}

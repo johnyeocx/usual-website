@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.17",
+    "axios": "^1.2.2",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
     "gapi": "^0.0.3",
@@ -23,6 +24,7 @@
     "react-div-100vh": "^0.7.0",
     "react-dom": "18.2.0",
     "react-gapi": "^1.0.2",
+    "react-icons": "^4.7.1",
     "sass": "^1.56.1"
   },
   "devDependencies": {
