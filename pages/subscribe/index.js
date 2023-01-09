@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { getBusinessByIdReq } from '../requests/api'
+import { getBusinessByIdReq } from '../../requests/api'
 import styles from '../../styles/Subscribe/Subscribe.module.scss'
 import SelectProducts from '../../components/Subscribe/01_SelectProducts'
 import SubscribeLogin from '../../components/Subscribe/02_InputDetails'
 import ConfirmSubscription from '../../components/Subscribe/03_ConfirmSubscription'
 
 
-function subscribe() {
+function Subscribe() {
     const [business, setBusiness] = useState(null);
     const [products, setProducts] = useState(null);
     const [categories, setCategories] = useState(null);
@@ -98,4 +98,4 @@ function subscribe() {
     )
 }
 
-export default subscribe
+export default Subscribe
