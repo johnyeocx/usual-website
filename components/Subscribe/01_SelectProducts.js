@@ -67,7 +67,7 @@ function SelectProducts({
                             const product = subProduct.product;
                             const subPlan = subProduct.subscription_plan;
                             return (
-                                <div className={styles.productCard}>
+                                <div key={index} className={styles.productCard}>
                                     <div className={styles.productContent}>
                                         <div className={styles.productImgContainer}>
                                             <Image src={getProductImage(product.product_id)}

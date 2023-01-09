@@ -60,7 +60,7 @@ function ConfirmSubscription({
                             const product = subProduct.product;
                             const subPlan = subProduct.subscription_plan;
                             if (checked[index]) return (
-                                <div className={styles.productCard}>
+                                <div key={index} className={styles.productCard}>
                                     <div className={styles.productName}>
                                         <p>{`${index + 1}.`}</p>
                                         <div className={styles.name}>{product.name}</div>
