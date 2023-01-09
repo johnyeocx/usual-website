@@ -6,7 +6,7 @@ import SubscribeLogin from '../../components/Subscribe/02_InputDetails'
 import ConfirmSubscription from '../../components/Subscribe/03_ConfirmSubscription'
 
 
-function Subscribe() {
+function subscribe() {
     const [business, setBusiness] = useState(null);
     const [products, setProducts] = useState(null);
     const [categories, setCategories] = useState(null);
@@ -98,4 +98,4 @@ function Subscribe() {
     )
 }
 
-export default Subscribe
+export default subscribe
