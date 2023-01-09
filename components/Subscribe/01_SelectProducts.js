@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Subscribe/SelectProducts.module.scss'
 import { Checkbox } from '@mui/material'
 import { getProductImage, getPricingString, getBusinessImage } from '../../misc/constants'
+import Image from 'next/image'
 
 
 export const CustomCheckbox = (props) => {
@@ -45,8 +46,12 @@ function SelectProducts({
                 <div className={styles.businessContainer}>
                     <div className={styles.top}>
                         <div className={styles.logoContainer}>
-                            <img src={getBusinessImage(business.business_id)}
+                            <Image src={getBusinessImage(business.business_id)}
                                 alt=""
+                                // style={{ width: '100%', height: '100%' }}
+                                // fill
+                                width={100}
+                                height={100}
                             />
                         </div>
                         <div className={styles.name}>
@@ -65,8 +70,10 @@ function SelectProducts({
                                 <div className={styles.productCard}>
                                     <div className={styles.productContent}>
                                         <div className={styles.productImgContainer}>
-                                            <img src={getProductImage(product.product_id)}
+                                            <Image src={getProductImage(product.product_id)}
                                                 alt=""
+                                                width={100}
+                                                height={100}
                                             />
                                         </div>
                                         <div className={styles.productDetails}>
