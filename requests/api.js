@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // export const endpoint = "http://127.0.0.1:5000"
-export const endpoint = "http://localhost:8080"
+// export const endpoint = "http://localhost:8080"
+export const endpoint = "https://api.usual.ltd"
 
 export const getBusinessByIdReq = async (id) =>
     axios.get(`${endpoint}/api/c/business?business_id=${id}`)
