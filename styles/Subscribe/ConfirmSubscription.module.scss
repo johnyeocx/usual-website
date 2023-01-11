@@ -63,6 +63,7 @@
     width: 100%;
     padding: 0px 10px;
 
+
     button {
         width: 100%;
         height: 50px;
@@ -70,6 +71,7 @@
         background-color: black;
         font-size: 20px;
         font-family: $primary-font;
+        @include flexCenter(column);
         cursor: pointer
     }
 }
@@ -82,6 +84,7 @@
 .productCard {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
     
     div .name {
         font-size: 18px;
@@ -117,4 +120,27 @@
         font-size: 20px;
         font-weight: bold;
     }
+}
+
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+$spinnerHeight: 30px;
+.spinner {
+    width: $spinnerHeight;
+    height: $spinnerHeight;
+    border-radius: $spinnerHeight/2;
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgb(106, 106, 106);
+    border-left-color: white;
+
+    animation: rotating 1s 0.25s linear infinite;
 }

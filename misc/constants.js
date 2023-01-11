@@ -12,6 +12,6 @@ export const getProductImage = (id) => {
 export const getPricingString = (plan) => {
     const interval = plan.recurring_duration.interval
     const intervalCount = plan.recurring_duration.interval_count
-    const unitAmount = plan.unit_amount;
+    const unitAmount = plan.unit_amount.toFixed(2);
     return `£${unitAmount} / ${intervalCount} ${interval}${intervalCount > 1 ? "s" : ""}`
 }

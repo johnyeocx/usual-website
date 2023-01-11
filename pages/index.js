@@ -106,35 +106,6 @@ export default function Home() {
         loading={loading}
         handleSubmit={handleSubmit}
         success={success} />
-      {/* {
-        isMobile ?
-          <>
-            <Form
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              loading={loading}
-              handleSubmit={handleSubmit}
-              success={success}
-            />
-            <Screen isMobile={isMobile} />
-          </>
-          :
-          <>
-            <Screen isMobile={isMobile} />
-            <Form
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              loading={loading}
-              handleSubmit={handleSubmit}
-              success={success}
-            />
-
-          </>
-      } */}
 
     </Div100vh >
 

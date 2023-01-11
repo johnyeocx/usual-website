@@ -8,12 +8,11 @@ function ConfirmSubscription({
     setPage,
     products,
     categories,
-    checked
+    checked,
+    onConfirmClicked,
+    loading
 }) {
     const [fadeOut, setFadeOut] = useState(false)
-
-    const onConfirmClicked = () => {
-    }
 
     const onBackClicked = () => {
         setFadeOut(true);
@@ -43,6 +42,7 @@ function ConfirmSubscription({
         }
         return price;
     }
+
     return (
         <div className={`${styles.container} ${fadeOut ? styles.fadeOut : styles.fadeIn}`}>
             <div>
@@ -85,12 +85,17 @@ function ConfirmSubscription({
             </div>
 
 
-
             {/* PURCHASE */}
             <div>
 
                 <div className={styles.buttonContainer}>
-                    <button onClick={() => onConfirmClicked()}>Confirm</button>
+                    <button onClick={() => onConfirmClicked()}>
+                        {loading ? (
+                            <div className={styles.spinner}></div>
+                        ) : (
+                            <>Confirm!</>
+                        )}
+                    </button>
                 </div>
             </div>
 

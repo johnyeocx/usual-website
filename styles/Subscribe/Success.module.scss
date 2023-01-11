@@ -1,0 +1,28 @@
+@import '../config';
+
+$maxWidth: 500px;
+$paddingLeft: 50px;
+.svgContainer {
+    width: 100vw;
+    max-width: $maxWidth;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px $paddingLeft;
+    margin-bottom: 30px;
+}
+
+.textContainer {
+    width: 100vw;
+    max-width: $maxWidth;
+    padding: 0px $paddingLeft;
+    
+    .text1 {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 20px;
+    }
+}

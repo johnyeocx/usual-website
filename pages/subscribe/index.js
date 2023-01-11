@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { getBusinessByIdReq } from '../../requests/api'
+import { createCFromSubReq, createSubscriptionReq, getBusinessByIdReq } from '../../requests/api'
 import styles from '../../styles/Subscribe/Subscribe.module.scss'
 import SelectProducts from '../../components/Subscribe/01_SelectProducts'
-import SubscribeLogin from '../../components/Subscribe/02_InputDetails'
+import InputDetails from '../../components/Subscribe/02_InputDetails'
 import ConfirmSubscription from '../../components/Subscribe/03_ConfirmSubscription'
+import { useRouter } from 'next/router'
 
 
 function Subscribe() {
@@ -11,8 +12,21 @@ function Subscribe() {
     const [products, setProducts] = useState(null);
     const [categories, setCategories] = useState(null);
     const [checked, setChecked] = useState(null);
-
     const [page, setPage] = useState(0)
+    const [loading, setLoading] = useState(false)
+
+    const router = useRouter()
+
+    const [createDetails, setCreateDetails] = useState({
+        name: "",
+        email: "",
+        card: {
+            number: "",
+            expiry_month: "",
+            expiry_year: "",
+            cvc: "",
+        }
+    })
 
     const createCatMap = (categories) => {
         console.log(categories)
@@ -30,6 +44,7 @@ function Subscribe() {
             const { data } = await getBusinessByIdReq(id)
 
             if (data != null) {
+                console.log(data.sub_products)
                 const sortedProducts = data.sub_products.sort(
                     (a, b) => a.product.category_id - b.product.category_id)
 
@@ -39,7 +54,7 @@ function Subscribe() {
                 setProducts(sortedProducts)
                 setCategories(cats)
 
-                const checkedArr = new Array(sortedProducts.length).fill(false);
+                const checkedArr = new Array(sortedProducts.length).fill(true);
                 setChecked(checkedArr);
             }
 
@@ -59,11 +74,59 @@ function Subscribe() {
 
         if (window == null) return
 
+
         const queryParameters = new URLSearchParams(window.location.search)
         const businessId = queryParameters.get("business_id")
         getBusiness(businessId)
 
     }, [])
+
+    const createCustomer = async () => {
+        try {
+            const details = { ...createDetails }
+            details.card.expiry_month = parseInt(details.card.expiry_month)
+            details.card.expiry_year = parseInt(details.card.expiry_year)
+            // SIMULATE
+            // card: 4000008260000000
+            // exp: 10/27
+            // cvc: 123
+            // console.log(details)
+            const { data } = await createCFromSubReq(details)
+            return data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const createSubscriptions = async (accessToken) => {
+        let productIds = []
+        products.map((product, index) => {
+            if (checked[index]) {
+                productIds.push(product.product.product_id)
+            }
+        })
+
+        productIds = [1, 6]
+        const res = await createSubscriptionReq(
+            { "product_ids": productIds },
+            accessToken
+        )
+
+        return res.status == 200
+    }
+
+    const confirmClicked = async () => {
+        // 1. create user
+        setLoading(true)
+        const data = await createCustomer();
+        if (data != null) {
+            await createSubscriptions(data.access_token);
+        }
+        setLoading(false)
+        router.push('/subscribe/success')
+
+
+    }
 
     if (business == null) {
         return
@@ -82,18 +145,22 @@ function Subscribe() {
                         page={page}
                         setPage={setPage}
                     />
-                    : page == 1 ? <SubscribeLogin setPage={setPage} />
+                    : page == 1 ?
+                        <InputDetails
+                            setPage={setPage}
+                            details={createDetails}
+                            setDetails={setCreateDetails}
+                        />
                         : <ConfirmSubscription
                             page={page}
                             setPage={setPage}
                             products={products}
                             checked={checked}
+                            onConfirmClicked={confirmClicked}
+                            loading={loading}
                         />
                 }
             </div>
-
-
-
         </div>
     )
 }

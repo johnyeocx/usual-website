@@ -21,7 +21,7 @@ const CustomTextField = (props) => {
     />
   )
 }
-function InputDetails({ setPage }) {
+function InputDetails({ setPage, details, setDetails }) {
 
   const [fadeOut, setFadeOut] = useState(false)
   const [fadeOutLeft, setFadeOutLeft] = useState(false)
@@ -60,11 +60,15 @@ function InputDetails({ setPage }) {
               color='secondary'
               variant='outlined'
               label="Full Name"
+              value={details.name}
+              onChange={(e) => setDetails({ ...details, name: e.target.value })}
             />
             <CustomTextField className={styles.textField}
               color='secondary'
               variant='outlined'
               label="Email"
+              value={details.email}
+              onChange={(e) => setDetails({ ...details, email: e.target.value })}
             />
           </div>
         </div>
@@ -114,6 +118,9 @@ function InputDetails({ setPage }) {
             variant='outlined'
             label="Card Number"
             style={{ width: '100%', marginBottom: '20px' }}
+            value={details.card.number}
+            onChange={(e) =>
+              setDetails({ ...details, card: { ...details.card, number: e.target.value } })}
           />
           <div className={`${styles.row} `} style={{ marginBottom: '20px' }}>
             <div className={styles.row2}>
@@ -122,12 +129,18 @@ function InputDetails({ setPage }) {
                 color='secondary'
                 variant='outlined'
                 label="MM"
+                value={details.card.expiry_month}
+                onChange={(e) =>
+                  setDetails({ ...details, card: { ...details.card, expiry_month: e.target.value } })}
               />
               <CustomTextField
                 style={{ width: '50%' }}
                 color='secondary'
                 variant='outlined'
                 label="YYYY"
+                value={details.card.expiry_year}
+                onChange={(e) =>
+                  setDetails({ ...details, card: { ...details.card, expiry_year: e.target.value } })}
               />
             </div>
             <CustomTextField
@@ -135,6 +148,9 @@ function InputDetails({ setPage }) {
               variant='outlined'
               label="CVC"
               style={{ width: "48%" }}
+              value={details.card.cvc}
+              onChange={(e) =>
+                setDetails({ ...details, card: { ...details.card, cvc: e.target.value } })}
             />
           </div>
         </div>

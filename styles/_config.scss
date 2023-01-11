@@ -13,3 +13,25 @@ $breakpoint-thin: 380px;
     align-items: center;
     flex-direction: $flex-direction;
 }
+
+// spinner
+@keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+    
+@mixin spinner() {
+    width: 25px;
+    height: 25px;
+    border-style: solid;
+    border-radius: 12.5px;
+    border-color:rgba(37, 37, 37, 0.3);
+    border-width: 4px;
+    border-left-color:black;
+    font-size: 0;
+    animation: rotating 1s 0.25s linear infinite;
+}
