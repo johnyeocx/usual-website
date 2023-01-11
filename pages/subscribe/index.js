@@ -20,6 +20,8 @@ function Subscribe() {
     const [createDetails, setCreateDetails] = useState({
         name: "",
         email: "",
+        password: "",
+        confirmPassword: "",
         card: {
             number: "",
             expiry_month: "",

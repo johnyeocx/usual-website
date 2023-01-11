@@ -25,6 +25,7 @@ function InputDetails({ setPage, details, setDetails }) {
 
   const [fadeOut, setFadeOut] = useState(false)
   const [fadeOutLeft, setFadeOutLeft] = useState(false)
+  const [confirmPassword, setConfirmPassword] = useState("")
 
   const onNextClicked = () => {
     setFadeOut(true)
@@ -51,11 +52,11 @@ function InputDetails({ setPage, details, setDetails }) {
         <button className={styles.backButton} onClick={() => onBackClicked()}>
           <FaArrowLeft className={styles.icon} />
         </button>
-        <div className={styles.title}>
-          Details
+        <div className={styles.title2}>
+          Account Details
         </div>
         <div className={`${styles.formContainer} `}>
-          <div className={styles.row}>
+          <div className={styles.row} style={{ marginBottom: '20px' }}>
             <CustomTextField className={styles.textField}
               color='secondary'
               variant='outlined'
@@ -69,6 +70,24 @@ function InputDetails({ setPage, details, setDetails }) {
               label="Email"
               value={details.email}
               onChange={(e) => setDetails({ ...details, email: e.target.value })}
+            />
+          </div>
+          <div className={styles.row}>
+            <CustomTextField className={styles.textField}
+              color='secondary'
+              variant='outlined'
+              label="Password"
+              type="password"
+              value={details.password}
+              onChange={(e) => setDetails({ ...details, password: e.target.value })}
+            />
+            <CustomTextField className={styles.textField}
+              color='secondary'
+              variant='outlined'
+              label="Confirm Password"
+              type="password"
+              value={details.confirmPassword}
+              onChange={(e) => setDetails({ ...details, confirmPassword: e.target.value })}
             />
           </div>
         </div>

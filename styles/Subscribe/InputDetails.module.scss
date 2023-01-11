@@ -72,7 +72,18 @@
     padding: 0px 11px;
     font-size: 25px;
     margin-bottom: 20px;
+    font-weight: bold;
 }
+
+.title2 {
+    padding: 0px 11px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+
 
 .formContainer {
     padding: 0px 8px;
@@ -114,6 +125,7 @@
         height: 50px;
         border-radius: 50px;
         background-color: black;
+        color: white;
         font-size: 20px;
         font-family: $primary-font;
         cursor: pointer
