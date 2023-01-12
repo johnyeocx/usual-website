@@ -92,7 +92,6 @@ function Subscribe() {
             // card: 4000008260000000
             // exp: 10/27
             // cvc: 123
-            // console.log(details)
             const { data } = await createCFromSubReq(details)
             return data
         } catch (error) {
@@ -108,7 +107,7 @@ function Subscribe() {
             }
         })
 
-        productIds = [1, 6]
+        // productIds = [1, 6]
         const res = await createSubscriptionReq(
             { "product_ids": productIds },
             accessToken

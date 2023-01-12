@@ -40,7 +40,7 @@ function ConfirmSubscription({
                 price += products[i].subscription_plan.unit_amount;
             }
         }
-        return price;
+        return (price / 100).toFixed(2);
     }
 
     return (
