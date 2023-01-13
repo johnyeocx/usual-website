@@ -23,9 +23,10 @@ const CustomTextField = styled(TextField)({
 
 
 function Form({
-    name, setName, email, setEmail, loading, handleSubmit, success
+    name, setName, email, setEmail, business, setBusiness, loading, handleSubmit, success
 }) {
     const emailRef = useRef(null);
+    const businessRef = useRef(null);
     return (
         <div className={styles.container}>
             <div className={styles.contentContainer}>
@@ -82,11 +83,49 @@ function Form({
                             label="Email"
                             variant="filled"
 
+                            onKeyDown={(e) => {
+                                // e.preventDefault()
+                                if (e.key == "Enter") {
+                                    businessRef.current.focus();
+                                }
+                            }}
+
                             onChange={(e) => {
                                 setEmail(e.target.value)
                             }}
-                            // value={email}
-                            // onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+
+                            style={{
+                                backgroundColor: "grey !important"
+                            }}
+
+                            InputLabelProps={{
+                                style: {
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden',
+                                    width: '100%',
+                                    color: '#DDD',
+                                    fontFamily: "CircularStd"
+                                }
+                            }}
+
+                            inputProps={{
+                                style: {
+                                    color: "white",
+                                    fontFamily: "CircularStd",
+                                }
+                            }}
+                            blurOnSubmit={false}
+                        />
+
+                        <CustomTextField
+                            inputRef={businessRef}
+                            className={styles.textField}
+                            label="Business Name (Optional)"
+                            variant="filled"
+                            value={business}
+                            onChange={(e) => setBusiness(e.target.value)}
 
                             style={{
                                 backgroundColor: "grey !important"

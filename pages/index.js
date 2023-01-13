@@ -49,6 +49,7 @@ export const breakpoints = {
 export default function Home() {
   const [name, setName] = useState()
   const [email, setEmail] = useState()
+  const [business, setBusiness] = useState()
   const [question, setQuestion] = useState()
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -73,7 +74,7 @@ export default function Home() {
     const form = {
       name,
       email,
-      question
+      business
     }
 
     try {
@@ -105,7 +106,7 @@ export default function Home() {
         setEmail={setEmail}
         loading={loading}
         handleSubmit={handleSubmit}
-        success={success} />
+        success={success} business={business} setBusiness={setBusiness} />
 
     </Div100vh >
 

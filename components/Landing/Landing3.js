@@ -13,7 +13,9 @@ function Landing3({
     loading,
     handleSubmit,
     success,
-    registerPageRef
+    registerPageRef,
+    business,
+    setBusiness
 }) {
     return (
         <div className={`${styles.landing3Container} ${styles.stepContainer} `}>
@@ -39,7 +41,10 @@ function Landing3({
                     setEmail={setEmail}
                     loading={loading}
                     handleSubmit={handleSubmit}
-                    success={success} />
+                    success={success}
+                    business={business}
+                    setBusiness={setBusiness}
+                />
             </div>
         </div>
     )
