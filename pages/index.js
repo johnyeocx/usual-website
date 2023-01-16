@@ -1,21 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Div100vh from 'react-div-100vh'
-import styles from '../styles/Home.module.scss'
-import logo from '../public/images/logo2.png'
-import screen from '../public/images/home_screen.png'
+import styles from '../styles/Landing.module.scss'
 import { TextField, styled } from '@mui/material'
-import RippleButton from '../components/RippleButton'
 import { useContext, useEffect, useRef, useState } from 'react'
-import Logo from '../components/Logo'
 import AppContext from './AppContext'
 
-import dynamic from 'next/dynamic'
-import Screen from '../components/Screen'
-import Form from '../components/Form'
 import Landing1 from '../components/Landing/Landing1'
-import Landing2 from '../components/Landing/Landing2'
 import Landing3 from '../components/Landing/Landing3'
+import Better from '../components/Landing/WhyBetter'
+import Landing1Mobile from '../components/Landing/Landing1Mobile'
+import Landing2 from '../components/Landing/Landing2'
 
 
 const CustomTextField = styled(TextField)({
@@ -53,6 +48,8 @@ export default function Home() {
   const [question, setQuestion] = useState()
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
+
+  const [isBusinessView, setIsBusinessView] = useState(true)
 
   const [isMobile, setIsMobile] = useState(false)
 
@@ -96,17 +93,41 @@ export default function Home() {
 
   return (
 
-    <Div100vh className={styles.container}>
-      <Landing1 isMobile={isMobile} registerPageRef={registerPageRef} />
-      <Landing2 />
-      <Landing3 registerPageRef={registerPageRef}
+    <Div100vh
+      className={styles.container}
+    >
+      {isMobile ? (
+        <Landing1Mobile
+          isMobile={isMobile}
+          registerPageRef={registerPageRef}
+          isBusinessView={isBusinessView}
+          setIsBusinessView={setIsBusinessView}
+        />
+      ) : (
+        <Landing1
+          isMobile={isMobile}
+          registerPageRef={registerPageRef}
+          isBusinessView={isBusinessView}
+          setIsBusinessView={setIsBusinessView}
+        />
+      )
+      }
+
+      {/* <Better /> */}
+      <Landing2 isBusinessView={isBusinessView} />
+      <Landing3
+        registerPageRef={registerPageRef}
         name={name}
         setName={setName}
         email={email}
         setEmail={setEmail}
         loading={loading}
         handleSubmit={handleSubmit}
-        success={success} business={business} setBusiness={setBusiness} />
+        success={success}
+        business={business}
+        setBusiness={setBusiness}
+        isBusinessView={isBusinessView}
+      />
 
     </Div100vh >
 

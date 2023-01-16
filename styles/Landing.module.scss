@@ -1,107 +1,11 @@
 @import 'config';
 
-.landing1Container {
-    height: 100%;
-    width: 100vw;
-    @include flexCenter(row);
-    // background-color: blue;
-    padding: 0 5%;
-
-    @media (max-width: $breakpoint-tablet) {
-      height: auto;
-      padding: 0px;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .left {
-        padding: 0px 50px;
-        width: 50%;
-        height: 100%;
-        @include flexCenter(column);
-
-        @media (max-width: $breakpoint-tablet) {
-          // background-color: red;
-          width: 100%;
-          height: 100vh;
-          padding: 0px 30px;
-          flex-direction: column;
-          justify-content: center;
-        }
-    }
-
-    .right {
-        padding: 0px 50px;
-        width: 50%;
-        height: 100%;
-        // background-color: green;
-        @include flexCenter(column);
-
-        @media (max-width: $breakpoint-tablet) {
-          width: 100%;
-          height: 95vh;
-          padding: 0px 30px;
-          flex-direction: column;
-          justify-content: center;
-        }
-    }
+.container {
+  background-color: white;
+  z-index: -1;
+  width: 100vw;
+  overflow-x: hidden;
 }
-
-
-// BRAND CONTAINER
-.brandContainer {
-  padding-left: 70px;
-  margin-bottom: 40px;
-
-  .svgContainer {
-    width: 200px;
-    margin-bottom: 10px;
-  }
-  
-  .subtitle {
-    font-size: 25px;
-  }
-
-  .titleContainer {
-    margin-top: 20px;
-    font-size: 30px;
-    font-weight: bold;
-  }
-
-  .logoContainer {
-    width: 100px;
-  }
-
-  @media (max-width: $breakpoint-tablet) {
-    width: 100%;
-    padding: 0px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    margin-bottom: 50px;
-    // background-color: blue;
-    padding: 0px 25px;
-
-    .logoContainer {
-      width: 300px;
-      @include flexCenter(column);
-      align-items: flex-start;
-    }
-
-    .svgContainer {
-      width: 150px;
-    }
-
-    .subtitle {
-      font-size: 20px;
-    }
-
-    .titleContainer {
-      font-size: 24px;
-    }
-  }
-}
-
 
 .stepContainer {
   // padding-top: 100px;
@@ -120,27 +24,7 @@
   }
 }
 
-.screenContainer {
 
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    object-fit: contain;
-    width: 69%;
-    max-width: 320px;
-    min-width: 300px;
-  
-    @media (max-width: $breakpoint-tablet) {
-      height: 75%;
-      // min-width: none;
-      // max-width: none;
-    }
-  
-    .logo {
-      object-fit: contain;
-    }
-}
 
 .letsGoButtonContainer {
   width: 100%;
@@ -168,23 +52,6 @@
   border-radius: 30px;
   margin-bottom: 20px;
   cursor: pointer;
-}
-
-
-.registerButton {
-  color: white;
-  width: 100%;
-  height: 60px;
-  background-color: #111;
-  font-family: 'CircularStd';
-  font-size: 22px;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-
-  @media (max-width: $breakpoint-tablet) {
-    font-size: 20px;
-  }
 }
 
 

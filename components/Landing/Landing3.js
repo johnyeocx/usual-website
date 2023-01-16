@@ -1,11 +1,8 @@
-
 import React from 'react'
-import styles from '../../styles/Landing.module.scss';
-import screen4 from '../../public/images/screen4.png'
-import Image from 'next/image';
-import Form from '../Form';
+import WhySubscriptions from './WhySubscriptions'
 
 function Landing3({
+    registerPageRef,
     name,
     setName,
     email,
@@ -13,40 +10,37 @@ function Landing3({
     loading,
     handleSubmit,
     success,
-    registerPageRef,
     business,
-    setBusiness
+    setBusiness,
+    isBusinessView,
 }) {
-    return (
-        <div className={`${styles.landing3Container} ${styles.stepContainer} `}>
-            <div className={`${styles.left} `}>
-                <div className={styles.stepTitle}>
-                    Enjoy your new subscription product!
-                </div>
-                <div className={styles.screenContainer}>
-                    <Image src={screen4}
-                        style={{
-                            height: '100%', width: '100%', objectFit: 'contain'
-                        }}
-                        alt=""
-                    />
-                </div>
-            </div>
 
-            <div ref={registerPageRef} className={`${styles.right}`}>
-                <Form
-                    name={name}
-                    setName={setName}
-                    email={email}
-                    setEmail={setEmail}
-                    loading={loading}
-                    handleSubmit={handleSubmit}
-                    success={success}
-                    business={business}
-                    setBusiness={setBusiness}
-                />
-            </div>
-        </div>
+    const customerReasons = [
+        { text: "Less money for a better experience", icon: "", },
+        { text: "Plan your expenses better", icon: "", },
+        { text: "Receive higher quality services", icon: "" }
+    ]
+
+    const businessReasons = [
+        { text: "Create a loyal customer base", icon: "", },
+        { text: "Understand your customers better", icon: "", },
+        { text: "Obtain a recurring revenue stream", icon: "" }
+    ]
+    return (
+        <WhySubscriptions
+            registerPageRef={registerPageRef}
+            name={name}
+            setName={setName}
+            email={email}
+            setEmail={setEmail}
+            loading={loading}
+            handleSubmit={handleSubmit}
+            success={success}
+            business={business}
+            setBusiness={setBusiness}
+            isBusinessView={isBusinessView}
+            reasons={isBusinessView ? businessReasons : customerReasons}
+        />
     )
 }
 
