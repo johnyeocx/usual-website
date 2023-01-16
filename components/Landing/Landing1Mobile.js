@@ -82,13 +82,13 @@ function Landing1Mobile({
                 <button
                     onClick={bizToCusTransition}
                     className={` ${stylesM.button1} ${stylesM.button} ${isBusinessView ? stylesM.unselected : stylesM.selected}`}>
-                    I'm a customer
+                    I&lsquo;m a customer
                 </button>
 
                 <button
                     onClick={cusToBizTransition}
                     className={`${stylesM.button} ${isBusinessView ? stylesM.selected : stylesM.unselected}`}>
-                    I'm a business
+                    I&lsquo;m a business
                 </button>
             </div>
 

@@ -30,7 +30,7 @@ function WhySubscriptions({
                     {
                         reasons.map((reason, index) => {
                             return (
-                                <div className={styles.reasonCard}>
+                                <div key={index} className={styles.reasonCard}>
                                     <div className={styles.numberContainer}>
                                         <div className={styles.number}>{index + 1}</div>
                                     </div>
