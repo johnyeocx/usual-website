@@ -6,7 +6,7 @@ import BusinessScreen from '../../public/images/business_screen.png'
 import CustomerScreen from '../../public/images/customer_screen.png'
 import Image from 'next/image';
 
-import stylesM from '../../styles/Landing/Landing1Mobile.module.scss';
+import stylesM from '../../styles/Landing/Landing1mobile.module.scss';
 
 
 function Landing1Mobile({
