@@ -35,3 +35,60 @@ $breakpoint-thin: 380px;
     font-size: 0;
     animation: rotating 1s 0.25s linear infinite;
 }
+
+
+
+@keyframes fadeInRight {
+  100% {
+      transform: translateX(0px);
+      opacity: 1;
+  }
+}
+
+@mixin fadeInRight {
+  transform: translateX(150px);
+  opacity: 0;
+  animation: fadeInRight 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInLeft {
+  100% {
+      transform: translateX(0px);
+      opacity: 1;
+  }
+}
+@mixin fadeInLeft {
+  transform: translateX(-150px);
+  opacity: 0;
+  animation: fadeInLeft 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOutLeft {
+  100% {
+      transform: translateX(-100px);
+      opacity: 0;
+  }
+}
+
+@mixin fadeOutLeft {
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeOutLeft 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeOutRight {
+  100% {
+      transform: translateX(100px);
+      opacity: 0;
+  }
+}
+
+@mixin fadeOutRight {
+  opacity: 1;
+  transform: translateX(0);
+  animation: fadeOutRight 0.2s;
+  animation-fill-mode: forwards;
+}

@@ -23,19 +23,14 @@
       opacity: 1;
     }
   }
-  
-
-
-
-
 
 .contentContainer {
     // background-color: blue;
     // padding-left: 50px;
     @include flexCenter(column);
     // align-items: center;
-    width: 100%;
-    padding: 0px 18%;
+    width: 500px;
+    padding: 0px 15%;
 
     @media (max-width: $breakpoint-tablet) {
     // margin: 150px 0px;
@@ -45,11 +40,13 @@
     }
 
     .headerContainer {
+      align-self: flex-start;
       p {
+        text-align: flex-start;
         color: white;
-        font-size: 22px;
+        font-size: 20px;
       }
-      margin-bottom: 40px;
+      margin-bottom: 20px;
 
       @media (max-width: $breakpoint-tablet) {
         p {

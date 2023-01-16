@@ -37,7 +37,7 @@ function Form({
                         <LogoDark />
                     </div>
 
-                    <p> Register your interest now to join our community of early users.</p>
+                    <p> Get early access to the app now.</p>
                 </div>
 
                 {success ? (

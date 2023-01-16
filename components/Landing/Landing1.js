@@ -1,12 +1,39 @@
-import React, { useRef } from 'react'
-import styles from '../../styles/Landing.module.scss';
+import React, { useRef, useState } from 'react'
+import styles from '../../styles/Landing/Landing1.module.scss';
+
 import Logo from '../../public/images/logo.svg';
-import screen1 from '../../public/images/screen1.png'
+
+import BusinessScreen from '../../public/images/business_screen.png'
+import CustomerScreen from '../../public/images/customer_screen.png'
 import Image from 'next/image';
 
-function Landing1({ isMobile, registerPageRef }) {
+function Landing1({
+    isMobile,
+    registerPageRef,
+    isBusinessView,
+    setIsBusinessView
+}) {
 
     const firstScreenRef = useRef()
+
+    const [cusFade, setCusFade] = useState(false)
+    const [bizFade, setBizFade] = useState(false)
+
+    const cusToBizTransition = (e) => {
+        setCusFade(true)
+        setTimeout(() => {
+            setIsBusinessView(true)
+            setCusFade(false)
+        }, 100)
+    }
+
+    const bizToCusTransition = (e) => {
+        setBizFade(true)
+        setTimeout(() => {
+            setIsBusinessView(false)
+            setBizFade(false)
+        }, 100)
+    }
 
     return (
         <div className={styles.landing1Container}>
@@ -14,42 +41,47 @@ function Landing1({ isMobile, registerPageRef }) {
 
                 <div className={styles.brandContainer}>
                     {/* <div className={styles.logoContainer}> */}
-                    <div className={styles.svgContainer}>
+                    <div className={styles.logo}>
                         <Logo />
                     </div>
                     {/* </div> */}
 
 
-                    <div className={styles.subtitle}>
-                        Build lasting relationships
+                    <div className={styles.slogan}>
+                        The better way to subscribe
                     </div>
 
-                    <div className={styles.titleContainer}>
-                        Create a subscription service in 3 simple steps.
-                    </div>
+                    <button onClick={() => {
+                        registerPageRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
+                    }} className={styles.earlyText}>
+                        Get early access now.
+                    </button>
 
                 </div>
 
-                {isMobile && (
+                {/* {isMobile && (
                     <div className={styles.letsGoButtonContainer}>
                         <button
                             onClick={() => {
-                                firstScreenRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
+                                
                             }}
                             className={styles.letsGoButton}>
                             Let&apos;s Go
                         </button>
                     </div>
+                )} */}
 
-                )}
-
-                <div className={styles.registerButtonContainer}>
+                <div className={styles.buttonsContainer}>
                     <button
-                        onClick={() => {
-                            registerPageRef.current.scrollIntoView({ behavior: "smooth" })
-                        }}
-                        className={styles.registerButton}>
-                        Be an early user!
+                        onClick={bizToCusTransition}
+                        className={` ${styles.button1} ${styles.button} ${isBusinessView ? styles.unselected : styles.selected}`}>
+                        I'm a customer
+                    </button>
+
+                    <button
+                        onClick={cusToBizTransition}
+                        className={`${styles.button} ${isBusinessView ? styles.selected : styles.unselected}`}>
+                        I'm a business
                     </button>
                 </div>
 
@@ -58,16 +90,27 @@ function Landing1({ isMobile, registerPageRef }) {
             <div
                 ref={firstScreenRef}
                 className={`${styles.right} ${styles.stepContainer}`}>
-                <div className={styles.stepTitle}>
-                    Step 1: <br /> Fill up your product details
-                </div>
                 <div className={styles.screenContainer}>
-                    <Image src={screen1}
-                        style={{
-                            height: '100%', width: '100%', objectFit: 'contain'
-                        }}
-                        alt=""
-                    />
+                    {
+                        isBusinessView ? (
+                            <Image src={BusinessScreen}
+                                style={{
+                                    height: '100%', width: '100%', objectFit: 'contain'
+                                }}
+                                className={`${styles.fadeInRight} ${bizFade && styles.fadeOutRight}`}
+                                alt=""
+                            />
+                        ) : (
+                            <Image src={CustomerScreen}
+                                style={{
+                                    height: '100%', width: '100%', objectFit: 'contain'
+                                }}
+                                className={`${styles.fadeInLeft} ${cusFade && styles.fadeOutLeft}`}
+                                alt=""
+                            />
+                        )
+                    }
+
                 </div>
             </div>
 
